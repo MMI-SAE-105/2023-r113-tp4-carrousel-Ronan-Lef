@@ -51,10 +51,20 @@
       .carrousel_btn-apres {
         right: 0;
       }
+      .carrousel_liste-liens{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        gap: 1rem;
+      }
     </style>
   </head>
   <body>
-    <div class="carrousel" x-data="{}">
+    <div class="carrousel" x-data="{
+        hrefCourant: '#ecran-1',
+    }">
       <button
         class="carrousel_btn carrousel_btn-avant"
         aria-label="slide précedant"
