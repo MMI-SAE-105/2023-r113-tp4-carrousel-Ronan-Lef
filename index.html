@@ -82,7 +82,12 @@ hrefCourant: '#ecran-1',
         @click="p=$refs.parent ; p.scrollLeft += p.clientWidth">
         >
       </button>
-      <div class="carrousel_parent-ecrans" x-ref="parent">
+      <div class="carrousel_parent-ecrans" x-ref="parent"
+      @scroll.debounce.250ms.passive="
+      hrefCourant='#' + 
+      [...$ref.parent.children]
+      .find(e=>e.getBoundingClientRect().x>=0)
+      .id">
         <div id="ecran-1" class="carrousel_ecran">
           <figure>
             <img
